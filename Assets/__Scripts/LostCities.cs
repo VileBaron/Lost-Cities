@@ -458,6 +458,16 @@ public class LostCities : MonoBehaviour
         return (false);
     }
 
+    public  int DifferencePlay(CardLostCities cb)
+    {
+        if (WhichAIDiscard(cb).Count == 0)
+            return cb.rank;
+        else if (cb.rank > WhichAIDiscard(cb)[WhichAIDiscard(cb).Count - 1].rank)
+            return cb.rank - WhichAIDiscard(cb)[WhichAIDiscard(cb).Count - 1].rank;
+    }
+
+
+
     // This makes a new card the target
     public CardLostCities MoveToTarget(CardLostCities tCB)
     {
